@@ -13,3 +13,7 @@ fetch("https://www.scorebat.com/video-api/v1/")
 // fetch("https://www.thesportsdb.com/api/v1/json/1/eventsround.php?id=4328&r=31&s=2020-2021&api_key=1")
 //         .then(response => response.json())
 //         .then(json => console.log(json));
+
+// The below code is the JavaScript supplied by the scorebat.com embed code
+
+// <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = 'https://www.scorebat.com/embed/embed.js?v=arrv'; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'scorebat-jssdk'));</script>
