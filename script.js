@@ -16,7 +16,7 @@ function searchYoutubeAPI() {
     });
 };
 
-
+// add event listener to "go" button and send that search term to both APIs
 searchButtonEl.addEventListener("click", function(){
     searchYoutubeAPI()
     searchOddsAPI();
@@ -30,7 +30,7 @@ function searchOddsAPI() {
         // .then(response => response.json())
         // .then(json => console.log(json));
 
-
+// mockData until we get a working key
  var mockData = {
             "success": true,
             "data": [
@@ -230,12 +230,22 @@ function searchOddsAPI() {
       var teamTwo = document.createElement("h2");
       var matchTime = document.createElement("h3");
       console.log(mockData.data);
-      teamOne.textContent = mockData.data[0].teams[0];
-      teamTwo.textContent = mockData.data[0].teams[1];
-      matchTime.textContent = mockData.data[0].commence_time;
+      teamOne.textContent = "Home: " + mockData.data[0].teams[0];
+      teamTwo.textContent = "Away: " + mockData.data[0].teams[1];
 
+// displays home and away team and formatted match time
       oddsEl.append(teamOne, teamTwo, matchTime);
 
+// converts unix commence_time to formatted time
+      let unixMatchTime = mockData.data[0].commence_time;
+      let matchTimeFormat = new Date(unixMatchTime * 1000);
+      var hours = matchTimeFormat.getHours();
+      var minutes = "0" + matchTimeFormat.getMinutes();
+
+      var formattedTime = hours + ":" + minutes.substr(-2);
+      console.log(formattedTime);
+// displays formatted time
+      matchTime.textContent = "Match Time: " + formattedTime;
 
 
         }
