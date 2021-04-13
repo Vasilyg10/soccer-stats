@@ -16,8 +16,9 @@ function searchYoutubeAPI() {
     });
 };
 
-// add event listener to "go" button and send that search term to both APIs
-searchButtonEl.addEventListener("click", function(){
+// add event listener to "go" button and send that search term to APIs
+searchButtonEl.addEventListener("click", function(event){
+    
     searchYoutubeAPI()
     searchOddsAPI()
     searchSportsDBAPI();
@@ -266,9 +267,6 @@ function searchOddsAPI() {
 
     oddsEl.append(homeOdds, awayOdds, drawOdds, oddsSource);
 
-
-
-
         }
 
 // This API for team crest / name / league table / previous fixtures if we need/want to add
@@ -297,5 +295,4 @@ function searchSportsDBAPI() {
 })
 };
 
-searchSportsDBAPI();
 
