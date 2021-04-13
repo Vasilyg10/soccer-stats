@@ -19,7 +19,8 @@ function searchYoutubeAPI() {
 // add event listener to "go" button and send that search term to both APIs
 searchButtonEl.addEventListener("click", function(){
     searchYoutubeAPI()
-    searchOddsAPI();
+    searchOddsAPI()
+    searchSportsDBAPI();
 });
 
 
@@ -270,20 +271,29 @@ function searchOddsAPI() {
 
         }
 
-
-
 // This API for team crest / name / league table / previous fixtures if we need/want to add
 
 function searchSportsDBAPI() {
-  fetch("https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=Arsenal")
+  fetch("https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=" + teamSearchEl.value)
         .then(function(response) {
           return response.json();
       }) 
       .then(function(response) {
         console.log(response);
 
-        console.log(response.teams[0].strTeam);
-        console.log(response.teams[0].strTeamBadge);
+        // console.log(response.teams[0].strTeam);
+        // console.log(response.teams[0].strTeamBadge);
+
+       
+        let imageEl = document.getElementById("team-crest");
+        imageEl.setAttribute("src", response.teams[0].strTeamBadge)
+
+        let clubNameEl = document.getElementById("club-name");
+        var clubName = (response.teams[0].strTeam)
+
+        clubNameEl.append(clubName)
+        
+
 })
 };
 
