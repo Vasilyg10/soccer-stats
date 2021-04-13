@@ -24,6 +24,14 @@ searchButtonEl.addEventListener("click", function(event){
     searchSportsDBAPI();
 });
 
+document.querySelector('#team-search').addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+    console.log('keypress')
+    searchYoutubeAPI()
+    searchOddsAPI()
+    searchSportsDBAPI();
+  }
+});
 
 // Fetch Match Odds
  
