@@ -3,7 +3,7 @@ var searchButtonEl = document.getElementById("search-button");
 
 // Fetch Team Highlights
 function searchYoutubeAPI() {
-    fetch("https://www.googleapis.com/youtube/v3/search?key=AIzaSyAFFU4jeWp4CulQBzEPnVz-mnODODs_Rpg&type=video&q=" + teamSearchEl.value)
+    fetch("https://www.googleapis.com/youtube/v3/search?key=AIzaSyAFFU4jeWp4CulQBzEPnVz-mnODODs_Rpg&type=video&q=" + teamSearchEl.value + " highlight")
         .then(function(response) {
             return response.json();
         }) 
