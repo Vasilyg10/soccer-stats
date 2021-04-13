@@ -226,15 +226,18 @@ function searchOddsAPI() {
           };
 
       var matchEl = document.getElementById("game-scorecard");
+      var competition = document.createElement("h2");
       var teamOne = document.createElement("h2");
       var teamTwo = document.createElement("h2");
       var matchTime = document.createElement("h3");
       console.log(mockData.data);
+
+      competition.textContent = "Competition: " + mockData.data[0].sport_nice;
       teamOne.textContent = "Home: " + mockData.data[0].teams[0];
       teamTwo.textContent = "Away: " + mockData.data[0].teams[1];
 
 // displays home and away team and formatted match time
-      matchEl.append(teamOne, teamTwo, matchTime);
+      matchEl.append(competition, teamOne, teamTwo, matchTime);
 
 // converts unix commence_time to formatted time
       let unixMatchTime = mockData.data[0].commence_time;
