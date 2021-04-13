@@ -251,8 +251,17 @@ function searchOddsAPI() {
     var oddsEl = document.getElementById("game-spread");
     var homeOdds = document.createElement("h2");
     var awayOdds = document.createElement("h2");
-    var drawOdds = documeent.createElement("h2");
-    console.log(mockData.sites[0].odds[0]);
+    var drawOdds = document.createElement("h2");
+    var oddsSource = document.createElement("h3");
+    
+    homeOdds.textContent = "Home Odds: " + mockData.data[0].sites[0].odds.h2h[0];
+    awayOdds.textContent = "Away Odds: " + mockData.data[0].sites[0].odds.h2h[1];
+    drawOdds.textContent = "Draw Odds: " + mockData.data[0].sites[0].odds.h2h[2];
+    oddsSource.textContent = "Source: " + mockData.data[0].sites[0].site_nice;
+
+
+    oddsEl.append(homeOdds, awayOdds, drawOdds, oddsSource);
+
 
 
 
