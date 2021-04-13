@@ -225,7 +225,7 @@ function searchOddsAPI() {
             ]
           };
 
-      var oddsEl = document.getElementById("game-scorecard");
+      var matchEl = document.getElementById("game-scorecard");
       var teamOne = document.createElement("h2");
       var teamTwo = document.createElement("h2");
       var matchTime = document.createElement("h3");
@@ -234,7 +234,7 @@ function searchOddsAPI() {
       teamTwo.textContent = "Away: " + mockData.data[0].teams[1];
 
 // displays home and away team and formatted match time
-      oddsEl.append(teamOne, teamTwo, matchTime);
+      matchEl.append(teamOne, teamTwo, matchTime);
 
 // converts unix commence_time to formatted time
       let unixMatchTime = mockData.data[0].commence_time;
@@ -247,8 +247,18 @@ function searchOddsAPI() {
 // displays formatted time
       matchTime.textContent = "Match Time: " + formattedTime;
 
+// populate odds element
+    var oddsEl = document.getElementById("game-spread");
+    var homeOdds = document.createElement("h2");
+    var awayOdds = document.createElement("h2");
+    var drawOdds = documeent.createElement("h2");
+    console.log(mockData.sites[0].odds[0]);
+
+
 
         }
+
+
 
 // This API for team crest / league table / previous fixtures if we need/want to add
 // fetch("https://www.thesportsdb.com/api/v1/json/1/eventsround.php?id=4328&r=31&s=2020-2021&api_key=1")
