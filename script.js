@@ -9,7 +9,7 @@ function searchYoutubeAPI() {
         }) 
         .then(function(response) {
          let videoEl = document.getElementById("video")
-            console.log(response);
+            // console.log(response);
 
        videoEl.setAttribute("src", "https://www.youtube.com/embed/" + response.items[0].id.videoId + "?autoplay=1")
 
@@ -230,7 +230,7 @@ function searchOddsAPI() {
       var teamOne = document.createElement("h2");
       var teamTwo = document.createElement("h2");
       var matchTime = document.createElement("h3");
-      console.log(mockData.data);
+      // console.log(mockData.data);
 
       competition.textContent = "Competition: " + mockData.data[0].sport_nice;
       teamOne.textContent = "Home: " + mockData.data[0].teams[0];
@@ -246,7 +246,7 @@ function searchOddsAPI() {
       var minutes = "0" + matchTimeFormat.getMinutes();
 
       var formattedTime = hours + ":" + minutes.substr(-2);
-      console.log(formattedTime);
+      // console.log(formattedTime);
 // displays formatted time
       matchTime.textContent = "Match Time: " + formattedTime;
 
@@ -272,7 +272,20 @@ function searchOddsAPI() {
 
 
 
-// This API for team crest / league table / previous fixtures if we need/want to add
-// fetch("https://www.thesportsdb.com/api/v1/json/1/eventsround.php?id=4328&r=31&s=2020-2021&api_key=1")
-//         .then(response => response.json())
-//         .then(json => console.log(json));
+// This API for team crest / name / league table / previous fixtures if we need/want to add
+
+function searchSportsDBAPI() {
+  fetch("https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=Arsenal")
+        .then(function(response) {
+          return response.json();
+      }) 
+      .then(function(response) {
+        console.log(response);
+
+        console.log(response.teams[0].strTeam);
+        console.log(response.teams[0].strTeamBadge);
+})
+};
+
+searchSportsDBAPI();
+
