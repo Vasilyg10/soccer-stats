@@ -3,7 +3,7 @@ var searchButtonEl = document.getElementById("search-button");
 
 // Fetch Team Highlights
 function searchYoutubeAPI() {
-    fetch("https://www.googleapis.com/youtube/v3/search?key=AIzaSyAFFU4jeWp4CulQBzEPnVz-mnODODs_Rpg&type=video&q=" + teamSearchEl.value + " highlight")
+    fetch("https://www.googleapis.com/youtube/v3/search?key=AIzaSyCIjpyMS1pcaKbblX4aqhz-wMKyGR2HdRQ&type=video&q=" + teamSearchEl.value + " highlight")
         .then(function(response) {
             return response.json();
         }) 
@@ -248,6 +248,7 @@ function searchOddsAPI() {
 
 // displays home and away team and formatted match time
       matchEl.append(competition, teamOne, teamTwo, matchTime);
+      $("#game-scorecard").empty().append(competition, teamOne, teamTwo, matchTime);
 
 // converts unix commence_time to formatted time
       let unixMatchTime = mockData.data[0].commence_time;
@@ -257,10 +258,10 @@ function searchOddsAPI() {
 
       var formattedTime = hours + ":" + minutes.substr(-2);
       // console.log(formattedTime);
-// displays formatted time
+    // displays formatted time
       matchTime.textContent = "Match Time: " + formattedTime;
 
-// populate odds element
+    // populate odds element
     var oddsEl = document.getElementById("game-spread");
     var homeOdds = document.createElement("h2");
     var awayOdds = document.createElement("h2");
@@ -275,7 +276,9 @@ function searchOddsAPI() {
 
     oddsEl.append(homeOdds, awayOdds, drawOdds, oddsSource);
 
-        }
+    $("#game-spread").empty().append(homeOdds, awayOdds, drawOdds, oddsSource);
+
+}
 
 // This API for team crest / name / league table / previous fixtures if we need/want to add
 
@@ -293,14 +296,20 @@ function searchSportsDBAPI() {
        
         let imageEl = document.getElementById("team-crest");
         imageEl.setAttribute("src", response.teams[0].strTeamBadge)
+        imageEl.height = 225;
+        imageEl.width = 225;
 
-        let clubNameEl = document.getElementById("club-name");
-        var clubName = (response.teams[0].strTeam)
-
-        clubNameEl.append(clubName)
         
 
-})
+        let clubNameEl = document.getElementById("club-name");
+        
+
+        var clubName = (response.teams[0].strTeam)
+
+        clubNameEl.append(clubName);
+        
+        $("#club-name").empty().append(clubName);
+      })
 };
 
 
