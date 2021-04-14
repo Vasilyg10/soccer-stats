@@ -104,7 +104,7 @@ function searchOddsAPI() {
 
 
 // converts unix commence_time to formatted time
-      let unixMatchTime = response.data[0].commence_time;
+      let unixMatchTime = teamObj.commence_time;
       let matchTimeFormat = new Date(unixMatchTime * 1000);
       var hours = matchTimeFormat.getHours();
       var minutes = "0" + matchTimeFormat.getMinutes();
@@ -121,10 +121,10 @@ function searchOddsAPI() {
     var drawOdds = document.createElement("h2");
     var oddsSource = document.createElement("h3");
     
-    homeOdds.textContent = "Home Odds: " + response.data[0].sites[0].odds.h2h[0];
-    awayOdds.textContent = "Away Odds: " + response.data[0].sites[0].odds.h2h[1];
-    drawOdds.textContent = "Draw Odds: " + response.data[0].sites[0].odds.h2h[2];
-    oddsSource.textContent = "Source: " + response.data[0].sites[0].site_nice;
+    homeOdds.textContent = "Home Odds: " + teamObj.sites[0].odds.h2h[0];
+    awayOdds.textContent = "Away Odds: " + teamObj.sites[0].odds.h2h[1];
+    drawOdds.textContent = "Draw Odds: " + teamObj.sites[0].odds.h2h[2];
+    oddsSource.textContent = "Source: " + teamObj.sites[0].site_nice;
 
 
     oddsEl.append(homeOdds, awayOdds, drawOdds, oddsSource);
