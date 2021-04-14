@@ -49,36 +49,53 @@ function searchOddsAPI() {
       var teamTwo = document.createElement("h2");
       var matchTime = document.createElement("h3");
       
-      var oddTeams = response.data;
-      console.log(oddTeams);
-      console.log(typeof teamSearchEl)
 
-      // for (
-      //  const team in response 
-      // ) {
-      //   // if (response.hasOwnProperty(team)) {
-      //   console.log(team) 
-      // }
-        for (
-          var i = 0; i < oddTeams.length; i++
-        )   
-          var oddResponse = response.data[i];
-          // var oddTeamsOne = oddResponse.home_team;
-          var stringTeamSearch = teamSearchEl.value
-          console.log(stringTeamSearch);
-        if (stringTeamSearch === oddResponse.home_team) {
-          console.log("test");
-          console.log(response.data[0])
-          // return oddResponse
-          competition.textContent = "Competition: " + oddResponse.sport_nice;
-          teamOne.textContent = "Home: " + response.data[0].teams[0];
-          teamTwo.textContent = "Away: " + response.data[0].teams[1];
+      // Raj's code
+      var oddObj = response.data;
+      let teamObj = oddObj.find(obj =>
+        obj.home_team.toLowerCase() == teamSearchEl.value.toLowerCase())
+          let awayTeam = []
+          let selectedTeams = teamObj.teams;
+          for (var i = 0; i< selectedTeams.length; i++) {
+            if (selectedTeams[i] !== teamObj.home_team) {
+              awayTeam.push(selectedTeams[i])
+              competition.textContent = "Competition: " + teamObj.sport_nice;
+              teamOne.textContent = "Home: " + teamObj.home_team;
+              teamTwo.textContent = "Away: " + awayTeam[0];
+            }
+          }
+          // Raj's code end
+
+      // var oddTeams = response.data;
+      // console.log(oddTeams);
+      // console.log(typeof teamSearchEl)
+
+      // // for (
+      // //  const team in response 
+      // // ) {
+      // //   // if (response.hasOwnProperty(team)) {
+      // //   console.log(team) 
+      // // }
+      //   for (
+      //     var i = 0; i < oddTeams.length; i++
+      //   )   
+      //     var oddResponse = response.data[i];
+      //     // var oddTeamsOne = oddResponse.home_team;
+      //     var stringTeamSearch = teamSearchEl.value
+      //     console.log(stringTeamSearch);
+      //   if (stringTeamSearch === oddResponse.home_team) {
+      //     console.log("test");
+      //     console.log(response.data[0])
+      //     // return oddResponse
+          // competition.textContent = "Competition: " + oddResponse.sport_nice;
+          // teamOne.textContent = "Home: " + response.data[0].teams[0];
+          // teamTwo.textContent = "Away: " + response.data[0].teams[1];
 
           // displays home and away team and formatted match time
           matchEl.append(competition, teamOne, teamTwo, matchTime);
           $("#game-scorecard").empty().append(competition, teamOne, teamTwo, matchTime);
           
-        }
+        
         // {
         //   console.log(oddTeams[i].teams)
         // }
