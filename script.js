@@ -3,7 +3,7 @@ var searchButtonEl = document.getElementById("search-button");
 
 // Fetch Team Highlights
 function searchYoutubeAPI() {
-    fetch("https://www.googleapis.com/youtube/v3/search?key=AIzaSyAFFU4jeWp4CulQBzEPnVz-mnODODs_Rpg&type=video&q=" + teamSearchEl.value + " highlight")
+    fetch("https://www.googleapis.com/youtube/v3/search?key=AIzaSyCIjpyMS1pcaKbblX4aqhz-wMKyGR2HdRQ&type=video&q=" + teamSearchEl.value + " highlight")
         .then(function(response) {
             return response.json();
         }) 
@@ -296,6 +296,8 @@ function searchSportsDBAPI() {
        
         let imageEl = document.getElementById("team-crest");
         imageEl.setAttribute("src", response.teams[0].strTeamBadge)
+        imageEl.height = 225;
+        imageEl.width = 225;
 
         
 
