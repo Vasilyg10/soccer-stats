@@ -294,13 +294,17 @@ function searchSportsDBAPI() {
         let imageEl = document.getElementById("team-crest");
         imageEl.setAttribute("src", response.teams[0].strTeamBadge)
 
-        let clubNameEl = document.getElementById("club-name");
-        var clubName = (response.teams[0].strTeam)
-
-        clubNameEl.append(clubName)
         
 
-})
+        let clubNameEl = document.getElementById("club-name");
+        
+
+        var clubName = (response.teams[0].strTeam)
+
+        clubNameEl.append(clubName);
+        
+        $("#club-name").empty().append(clubName);
+      })
 };
 
 
