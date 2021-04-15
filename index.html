@@ -19,13 +19,13 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" />
 	</head>
 	<body>
-		<header class="is-flex has-background-black">
-			<div class="pt-6 m-6">
-				<img src="./assets/images/Kicks pro.png" />
+		<header class="column has-background-black py-5 ">
+			<div class="column">
+				<img class="column is-half is-offset-one-quarter mt-4" src="./assets/images/Kicks pro.png" />
 			</div>
 		</header>
-		<div class="has-text-centered p-5 m-5 is-italic">
-			<p>
+		<div class="column has-text-centered p-5 m-1 is-italic">
+			<p class="column is-11 is-offset-1">
 				Use this website to search for your favorite English Premier League
 				team. Your search will return their previous match highlights, next
 				match information, and betting odds.
@@ -57,11 +57,14 @@
 		<div>
 			<img src="./assets/images/hero.jpg" />
 		</div>
-		<div class="pt-5 columns" id="favoriteTeam">
-			<label class="column is-6 has-text-centered" for="favoriteTeam"
-				>Choose your Favorite Team!</label
-			>
-			<select class="column is-4 has-text-centered" id="favoriteTeam">
+		
+			
+
+		<div class="columns py-6 has-background-danger-dark" id="favoriteTeam">
+			
+			<div class="column has-text-centered is-size-4 has-text-weight-bold has-text-white" for="favoriteTeam">CHOOSE YOUR FAVORITE TEAM</div>
+			<div class="column">
+			<select class="column" id="favoriteTeam">
 				<option selected value="">--Please choose a Team--</option>
 				<option id="1" value="arsenal">Arsenal</option>
 				<option id="2" value="astonvilla">Aston Villa</option>
@@ -86,7 +89,11 @@
 					Wolverhampton Wanderers
 				</option>
 			</select>
+			</div>
+			</div>
 		</div>
+		</div>
+
 		<div class="columns m-6">
 			<div
 				id="club-crest"
@@ -143,7 +150,7 @@
 			</div>
 		</div>
 
-		<footer class="footer hero is-danger is-medium has-text-centered is-size-5">
+		<footer class="footer hero py-6 has-background-danger-dark is-medium has-text-centered is-size-6 has-text-white pb-2">
 			&copy;2021 KICKS PRO
 		</footer>
 
