@@ -2,24 +2,24 @@ var teamSearchEl = document.getElementById("team-search");
 var searchButtonEl = document.getElementById("search-button");
 
 // Fetch Team Highlights
-// function searchYoutubeAPI() {
-//     fetch("https://www.googleapis.com/youtube/v3/search?key=AIzaSyCIjpyMS1pcaKbblX4aqhz-wMKyGR2HdRQ&type=video&q=" + teamSearchEl.value + " highlight")
-//         .then(function(response) {
-//             return response.json();
-//         }) 
-//         .then(function(response) {
-//          let videoEl = document.getElementById("video")
-//             // console.log(response);
+function searchYoutubeAPI() {
+    fetch("https://www.googleapis.com/youtube/v3/search?key=AIzaSyCIjpyMS1pcaKbblX4aqhz-wMKyGR2HdRQ&type=video&q=" + teamSearchEl.value + " highlight")
+        .then(function(response) {
+            return response.json();
+        }) 
+        .then(function(response) {
+         let videoEl = document.getElementById("video")
+            // console.log(response);
 
-//        videoEl.setAttribute("src", "https://www.youtube.com/embed/" + response.items[0].id.videoId + "?autoplay=1")
+       videoEl.setAttribute("src", "https://www.youtube.com/embed/" + response.items[0].id.videoId + "?autoplay=1")
 
-//     });
-// };
+    });
+};
 
 // add event listener to "go" button and send that search term to APIs
 searchButtonEl.addEventListener("click", function(event){
     
-    // searchYoutubeAPI()
+    searchYoutubeAPI()
     searchOddsAPI()
     searchSportsDBAPI();
 });
@@ -27,7 +27,7 @@ searchButtonEl.addEventListener("click", function(event){
 document.querySelector('#team-search').addEventListener('keypress', function (e) {
   if (e.key === 'Enter') {
     console.log('keypress')
-    // searchYoutubeAPI()
+    searchYoutubeAPI()
     searchOddsAPI()
     searchSportsDBAPI();
   }
