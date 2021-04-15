@@ -33,6 +33,31 @@ document.querySelector('#team-search').addEventListener('keypress', function (e)
   }
 });
 
+var favoriteTeam = function (){
+  
+  var sel = $('select');
+  
+  var clearSelected = function(){
+      sel.find(':selected').prop('selected', false);
+  }
+  
+  if(localStorage.getItem('pref')){
+    var pref = localStorage.getItem('pref');
+    clearSelected();
+    //set the selected state to true on the option localStorage remembers
+    sel.find('#' + pref).prop('selected', true);
+  }
+
+  var setPreference = function(){
+    //remember the ID of the option the user selected
+    localStorage.setItem('pref', sel.find(':selected').attr('id'));
+  };
+  
+  sel.on('change', setPreference);
+  console.log(favoriteTeam);
+};
+$(document).ready(favoriteTeam);
+
 // Fetch Match Odds
  
 function searchOddsAPI() {
